@@ -11,21 +11,12 @@
 
 void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int))
 {
-	if (tree && tree->left)
-		binary_tree_inorder(tree->left, *func);
-	else if (tree && tree->right)
-	{
-		func(tree->n);
-		binary_tree_inorder(tree->right, func);
-	}
-	else if (tree)
-	{
-		func(tree->n);
-		binary_tree_inorder(NULL, func);
-	}
-	if (tree && tree->right)
-	{
-		func(tree->n);
-		binary_tree_inorder(tree->right, func);
-	}
+	if (!tree)
+		return;
+	if (!func)
+		return;
+
+	binary_tree_preorder(tree->left, func);
+	func(tree->n);
+	binary_tree_preorder(tree->right, func);
 }
