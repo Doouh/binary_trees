@@ -26,8 +26,9 @@ int left(const binary_tree_t *tree)
 int binary_tree_balance(const binary_tree_t *tree)
 {
 	int sl = 0, sr = 0;
-
-	sl = left(tree);
-	sr = right(tree);
+	if (tree->left)
+		sl = left(tree);
+	if (tree->right)
+		sr = right(tree);
 	return (sl - sr);
 }
