@@ -1,10 +1,22 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_delete - function that deletes an entire binary tree
- * @tree: tree to delete
+ * binary_tree_sibling - function that finds the sibling of a node
+ * @node: s a pointer to the node to find the sibling
  *
- * Return: nothing
+ * Return: a pointer to the sibling node or NULL
 */
+binary_tree_t *binary_tree_sibling(binary_tree_t *node)
+{
+	binary_tree_t *sibling;
 
-
+	if (!node || !node->parent)
+		return (NULL);
+	if (!node->parent->left || !node->parent->right)
+		return (NULL);
+	if (node->parent->left == node)
+		sibling = node->parent->right;
+	if (node->parent->right == node)
+		sibling = node->parent->left;
+	return (sibling);
+}
