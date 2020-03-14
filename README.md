@@ -46,3 +46,7 @@ typedef struct binary_tree_s avl_t;
 typedef struct binary_tree_s heap_t;
 
 ```
+
+### Print function
+
+To match the examples in the tasks, you are given  [this function](https://github.com/holbertonschool/0x1C.c "this function")
